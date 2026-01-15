@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div class="row">
+
+    <div class="col-md-4" *ngFor="let plan of plans">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4>{{ plan.name }}</h4>
+          <h3>${{ plan.price }}</h3>
+
+          <button
+            class="btn btn-success w-100"
+            (click)="subscribe(plan.priceId)">
+            Elegir
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="dropdown">
+  <button
+    class="btn btn-outline-primary dropdown-toggle"
+    data-bs-toggle="dropdown">
+    Sucursal
+  </button>
+
+  <ul class="dropdown-menu">
+    <li *ngFor="let b of branches">
+      <button
+        class="dropdown-item"
+        [class.active]="b.id === selected"
+        (click)="changeBranch(b.id)">
+        {{ b.name }}
+      </button>
+    </li>
+  </ul>
+</div>

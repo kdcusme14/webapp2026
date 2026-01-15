@@ -1,0 +1,63 @@
+<div class="container mt-4">
+
+  <!-- MÉTRICAS -->
+  <div class="row text-center mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6>Ventas Hoy</h6>
+          <h3 class="text-success">${{ todaySales }}</h3>
+          <small>{{ todayOrders }} órdenes</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6>Ventas del Mes</h6>
+          <h3 class="text-primary">${{ monthSales }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6>Productos con Stock Bajo</h6>
+          <h3 class="text-danger">{{ lowStock.length }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP PRODUCTOS -->
+  <div class="card mb-4">
+    <div class="card-header">
+      ⭐ Productos más vendidos
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"
+          *ngFor="let p of topProducts">
+        {{ p.name }}
+        <span class="float-end">
+          {{ p.total_sold }} vendidos
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- STOCK BAJO -->
+  <div class="card">
+    <div class="card-header">
+      ⚠️ Atención – Stock bajo
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-danger"
+          *ngFor="let p of lowStock">
+        {{ p.name }} ({{ p.stock }})
+      </li>
+    </ul>
+  </div>
+
+</div>
